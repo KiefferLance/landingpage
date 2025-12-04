@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // =========================
-    // THEME MANAGEMENT
-    // =========================
+
     const themeToggle = document.getElementById('themeToggle');
     const html = document.documentElement;
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
@@ -31,9 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // =========================
-    // SCROLL ANIMATIONS
-    // =========================
+
     const scrollElements = document.querySelectorAll(
         '.feature-card, .detail-card, .section-title, .section-subtitle, .stat-item, .visual-content'
     );
@@ -54,9 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateScrollAnimations();
     window.addEventListener('scroll', updateScrollAnimations, { passive: true });
 
-    // =========================
-    // SMOOTH NAVIGATION LINKS
-    // =========================
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
@@ -67,4 +61,28 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Mobile Navigation Toggle
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+    
+    // Toggle icon bars <-> close
+    if (navLinks.classList.contains("open")) {
+        hamburger.innerHTML = '<i class="fas fa-times"></i>';
+    } else {
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+});
+
+// Close menu on link click (better UX)
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+});
+
 });
