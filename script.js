@@ -1,7 +1,3 @@
-// ========================================
-// FreshSense Theme Toggle & Detection
-// Handles dark/light mode with system preference detection
-// ========================================
 
 document.addEventListener('DOMContentLoaded', function() {
     // Get DOM elements
@@ -50,10 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// ========================================
-// Smooth Scroll for Navigation Links
-// ========================================
-
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -67,9 +59,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ========================================
-// Add animation on scroll
-// ========================================
+
 
 const observerOptions = {
     threshold: 0.1,

@@ -519,11 +519,26 @@ a:hover {
 /* Statistics Section */
 
 .stats {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    position: relative;
+    background-size: cover;
+    background-position: center;
     padding: var(--space-2xl) 0;
     color: var(--white);
     margin: var(--space-2xl) 0;
     transition: all 0.5s ease;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+.stats::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
 }
 
 .stats-grid {
@@ -531,6 +546,11 @@ a:hover {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--space-xl);
     text-align: center;
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
 }
 
 .stat-item {
@@ -541,7 +561,7 @@ a:hover {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: var(--space-sm);
-    color: var(--white);
+    color: #ffffff;
 }
 
 .stat-label {
@@ -549,6 +569,7 @@ a:hover {
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 0;
 }
+
 
 /* Final CTA Section */
 
