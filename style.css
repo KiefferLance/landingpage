@@ -196,6 +196,7 @@ a:hover {
     transform: scale(0.95);
 }
 
+
 /* Navigation Bar */
 
 .navbar {
@@ -1219,9 +1220,23 @@ a:focus {
 .skip-link:focus {
     top: 0;
 }
+/* Reposition theme toggle for mobile */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    top: auto;
+    left: auto;
 
-/* Extra Small Mobile (360px and below) */
-@media (max-width: 360px) {
+    width: 45px;
+    height: 45px;
+    font-size: 1.25rem;
+
+    z-index: 2000;
+}
+
+/* Extra Small Mobile  */
+@media (max-width: 400px) {
     h1 {
         font-size: 1.5rem;
     }
@@ -1250,39 +1265,15 @@ a:focus {
         padding: var(--space-md) var(--space-md);
         font-size: 0.85rem;
     }
+     .theme-toggle {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    
 }
 
-/* Extra Small Mobile (360px and below) */
-@media (max-width: 360px) {
-    h1 {
-        font-size: 1.5rem;
-    }
 
-    h2 {
-        font-size: 1.3rem;
-    }
-
-    .nav-links {
-        font-size: 0.7rem;
-    }
-
-    .hero-title {
-        font-size: 1.5rem;
-    }
-
-    .section-title {
-        font-size: 1.3rem;
-    }
-
-    .hero-cta {
-        gap: var(--space-xs);
-    }
-
-    .btn-large {
-        padding: var(--space-md) var(--space-md);
-        font-size: 0.85rem;
-    }
-}
 
 /* Print styles */
 @media print {
