@@ -1,4 +1,3 @@
-
 /* Light Mode (Default) */
 :root {
     --primary-color: #8B5A3C;     
@@ -12,6 +11,7 @@
     --neutral-medium: #7A7A7A;      
     --neutral-light: #F8F6F3;        
     --white: #ffffff;
+    --hero-text: #ffffff;
     
     --font-family: 'Poppins', sans-serif;
     --heading-font: 'Poppins', sans-serif;
@@ -49,6 +49,7 @@
     --neutral-medium: #CCCCCC;
     --neutral-light: #2D2D2D;
     --white: #1E1E1E;
+    --hero-text: #6B4423;
 }
 
 /* Reset & Base Styles */
@@ -312,7 +313,7 @@ a:hover {
 }
 
 .hero-title {
-    color: var(--white);
+    color: var(--hero-text);
     margin-bottom: var(--space-md);
     line-height: 1.3;
     font-size: 3.5rem;
@@ -394,9 +395,16 @@ a:hover {
 }
 
 .feature-icon {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: var(--space-md);
     display: block;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.15) rotate(5deg);
+    color: var(--primary-dark);
 }
 
 .feature-card h3 {
@@ -580,10 +588,16 @@ a:hover {
 /* Footer */
 
 .footer {
-    background-color: var(--neutral-dark);
-    color: var(--white);
+    background-color: #3E3E3E;
+    color: #ffffff;
     padding: var(--space-2xl) 0 var(--space-lg);
     transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Keep footer colors in dark mode */
+:root.dark-mode .footer {
+    background-color: #3E3E3E;
+    color: #ffffff;
 }
 
 .footer-content {
@@ -596,7 +610,7 @@ a:hover {
 }
 
 .footer-section h4 {
-    color: var(--white);
+    color: #ffffff;
     margin-bottom: var(--space-md);
 }
 
@@ -611,7 +625,12 @@ a:hover {
 }
 
 .footer-section a:hover {
-    color: var(--primary-color);
+    color: #8B5A3C;
+}
+
+/* Keep footer section colors in dark mode */
+:root.dark-mode .footer-section a:hover {
+    color: #D4A574;
 }
 
 .footer-links {
