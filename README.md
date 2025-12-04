@@ -1,4 +1,6 @@
-# 🌱 FreshSense - Smart Odor Detection Landing Page
+# M1|FA2-Landing Page Using CSS
+# CaseStudy1
+# 🌱 FreshSense - Smart Odor Detection Landing Page 
 
 A modern, responsive landing page designed for **FreshSense**, an AI-powered odor detection system for mushroom farms.  
 This webpage demonstrates clean UI/UX, strong visual hierarchy, and mobile responsiveness using advanced CSS, animations, and a custom dark mode theme.
@@ -44,6 +46,7 @@ This webpage demonstrates clean UI/UX, strong visual hierarchy, and mobile respo
 | **Google Fonts (Poppins)** | Typography |
 | **Font Awesome** | Icons |
 | **GitHub Pages** | Deployment |
+| **Freepik** | Pictures |
 
 ---
 
@@ -60,49 +63,13 @@ This webpage demonstrates clean UI/UX, strong visual hierarchy, and mobile respo
 │ ├── bgimg.jpg
 │ └── (other assets)
 
-yaml
-Copy code
-
----
-
-## 🚀 How to Run Locally
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/YOUR-REPO.git
-Open the folder:
-
-bash
-Copy code
-cd YOUR-REPO
-Open index.html in your browser
-or right-click → Open with Live Server (VS Code)
 
 🌐 Deployment (GitHub Pages)
 If your project is deployed, it will be accessible here:
 
 👉 https://kiefferlance.github.io/landingpage/
 
-To deploy manually:
-
-Go to Settings → Pages
-
-Select:
-
-Branch: main
-
-Folder: /root
-
-Save and wait for Pages to build.
-
-🖼️ Screenshots
-
-### 🖥️ Desktop View
-src/screenshot-desktop.png
-
-### 📱 Mobile View
-src/screenshot-mobile.png
-💡 Reflection (as required in your activity)
+💡 Reflection 
 CSS significantly improved the visual appeal and structure of this landing page.
 Through layout systems like Flexbox, Grid, and media queries, the site became responsive and clean across all devices.
 Color theory and typography enhanced readability, while animations provided smooth and engaging interactions.
