@@ -98,7 +98,7 @@ Save and wait for Pages to build.
 🖼️ Screenshots
 
 ### 🖥️ Desktop View
-![Desktop Screenshot](src/screenshot-desktop-preview.pngd)
+![Desktop Screenshot](src/screenshot-desktop.pngd)
 
 ### 📱 Mobile View
 ![Mobile Screenshot](src/screenshot-mobile.png)
