@@ -81,7 +81,7 @@ or right-click → Open with Live Server (VS Code)
 🌐 Deployment (GitHub Pages)
 If your project is deployed, it will be accessible here:
 
-👉 https://YOUR-USERNAME.github.io/YOUR-REPO/
+👉 https://kiefferlance.github.io/landingpage/
 
 To deploy manually:
 
@@ -96,10 +96,7 @@ Folder: /root
 Save and wait for Pages to build.
 
 🖼️ Screenshots
-You can add screenshots like this (replace with your actual images):
 
-md
-Copy code
 ### 🖥️ Desktop View
 ![Desktop Screenshot](src/desktop-preview.png)
 
