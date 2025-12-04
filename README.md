@@ -98,10 +98,10 @@ Save and wait for Pages to build.
 🖼️ Screenshots
 
 ### 🖥️ Desktop View
-![Desktop Screenshot](src/screenshot-desktop.png)
+src/screenshot-desktop.png
 
 ### 📱 Mobile View
-![Mobile Screenshot](src/screenshot-mobile.png)
+src/screenshot-mobile.png
 💡 Reflection (as required in your activity)
 CSS significantly improved the visual appeal and structure of this landing page.
 Through layout systems like Flexbox, Grid, and media queries, the site became responsive and clean across all devices.
