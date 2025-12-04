@@ -1,93 +1,70 @@
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Get DOM elements
+    // =========================
+    // THEME MANAGEMENT
+    // =========================
     const themeToggle = document.getElementById('themeToggle');
     const html = document.documentElement;
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-    // Function to apply theme
     function applyTheme(theme) {
-        if (theme === 'dark') {
-            html.classList.add('dark-mode');
-            themeToggle.textContent = '☀️';
-        } else {
-            html.classList.remove('dark-mode');
-            themeToggle.textContent = '🌙';
-        }
+        const isDark = theme === 'dark';
+        html.classList.toggle('dark-mode', isDark);
+        themeToggle.textContent = isDark ? '☀️' : '🌙';
+        localStorage.setItem('theme', theme);
     }
 
-    // Check for saved theme preference
+    // Initialize theme: saved > system > light
     const savedTheme = localStorage.getItem('theme');
-    
-    if (savedTheme) {
-        // Use saved preference
-        applyTheme(savedTheme);
-    } else {
-        // Detect system preference
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const systemTheme = prefersDark ? 'dark' : 'light';
-        applyTheme(systemTheme);
-        localStorage.setItem('theme', systemTheme);
-    }
+    const initialTheme = savedTheme || (prefersDark.matches ? 'dark' : 'light');
+    applyTheme(initialTheme);
 
-    // Theme toggle event listener
-    themeToggle.addEventListener('click', function() {
-        html.classList.toggle('dark-mode');
-        const isDarkMode = html.classList.contains('dark-mode');
-        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-        themeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+    // Listen for theme toggle
+    themeToggle.addEventListener('click', () => {
+        const newTheme = html.classList.contains('dark-mode') ? 'light' : 'dark';
+        applyTheme(newTheme);
     });
 
-    // Listen for system preference changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-        // Only apply if user hasn't manually set a preference
+    // Listen for system theme changes (only if no saved preference)
+    prefersDark.addEventListener('change', (e) => {
         if (!localStorage.getItem('theme')) {
             applyTheme(e.matches ? 'dark' : 'light');
         }
     });
-});
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+    // =========================
+    // SCROLL ANIMATIONS
+    // =========================
+    const scrollElements = document.querySelectorAll(
+        '.feature-card, .detail-card, .section-title, .section-subtitle, .stat-item, .visual-content'
+    );
+
+    function isElementInView(el) {
+        const rect = el.getBoundingClientRect();
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+        return rect.top <= viewportHeight / 1.25 && rect.bottom >= 0;
+    }
+
+    function updateScrollAnimations() {
+        scrollElements.forEach((el) => {
+            el.classList.toggle('animate-in', isElementInView(el));
+        });
+    }
+
+    // Run on load and scroll
+    updateScrollAnimations();
+    window.addEventListener('scroll', updateScrollAnimations, { passive: true });
+
+    // =========================
+    // SMOOTH NAVIGATION LINKS
+    // =========================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
     });
-});
-
-
-
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Observe feature cards for animation
-document.querySelectorAll('.feature-card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(card);
-});
-
-// Observe detail cards for animation
-document.querySelectorAll('.detail-card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(card);
 });
